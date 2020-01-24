@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 Oct, 2019 12:44:53 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="adzone" dynamic-insert="false" dynamic-update="false" mutable="true" name="pojo.Products" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="products">
+        <id name="productId" type="java.lang.Integer">
+            <column name="product_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="pojo.PublicityDetails" embed-xml="true" fetch="select" insert="true" name="publicityDetails" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="publicity_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="productType" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="product_type" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="productLocation" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="product_location" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="longitude" optimistic-lock="true" type="double" unique="false">
+            <column name="longitude" precision="10" scale="6"/>
+        </property>
+        <property generated="never" lazy="false" name="latitude" optimistic-lock="true" type="double" unique="false">
+            <column name="latitude" precision="10" scale="6"/>
+        </property>
+        <property generated="never" lazy="false" name="sizex" optimistic-lock="true" type="double" unique="false">
+            <column name="sizex" precision="10"/>
+        </property>
+        <property generated="never" lazy="false" name="sizey" optimistic-lock="true" type="double" unique="false">
+            <column name="sizey" precision="10"/>
+        </property>
+        <property generated="never" lazy="false" name="productStatus" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="product_status" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="productLevelHeight" optimistic-lock="true" type="int" unique="false">
+            <column name="product_level_height" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="productImage" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="product_image"/>
+        </property>
+        <property generated="never" lazy="false" name="productPrice" optimistic-lock="true" type="int" unique="false">
+            <column name="product_price" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="availableProductses" optimistic-lock="true" sort="unsorted" table="available_products">
+            <key on-delete="noaction">
+                <column name="product_id" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.AvailableProducts" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="reservedProductses" optimistic-lock="true" sort="unsorted" table="reserved_products">
+            <key on-delete="noaction">
+                <column name="product_id" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.ReservedProducts" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

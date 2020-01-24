@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 Oct, 2019 12:44:53 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="adzone" dynamic-insert="false" dynamic-update="false" mutable="true" name="pojo.CustomerInfo" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="customer_info">
+        <id name="customerId" type="java.lang.Integer">
+            <column name="customer_id"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="customerName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="customer_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="customerContact" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="customer_contact" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="customerEmail" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="customer_email" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="customerAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="customer_address"/>
+        </property>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="city" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="state" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="state" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="pincode" optimistic-lock="true" type="int" unique="false">
+            <column name="pincode" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="password" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="reservedProductses" optimistic-lock="true" sort="unsorted" table="reserved_products">
+            <key on-delete="noaction">
+                <column name="customer_id" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.ReservedProducts" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

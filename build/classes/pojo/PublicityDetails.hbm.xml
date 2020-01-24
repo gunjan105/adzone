@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 14 Oct, 2019 12:44:53 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="adzone" dynamic-insert="false" dynamic-update="false" mutable="true" name="pojo.PublicityDetails" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="publicity_details">
+        <id name="publicityId" type="java.lang.Integer">
+            <column name="`publicity _id`"/>
+            <generator class="identity"/>
+        </id>
+        <property generated="never" lazy="false" name="publicityName" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="publicity_name" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityAddress" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="publicity_address"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityContact" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="publicity_contact" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityEmail" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="publicity_email" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityRegistrationNumber" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="publicity_registration_number" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="adhaarNo" optimistic-lock="true" type="string" unique="false">
+            <column length="12" name="adhaar_no"/>
+        </property>
+        <property generated="never" lazy="false" name="websiteLink" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="website_link"/>
+        </property>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="100" name="password" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="city" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="city" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="state" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="state" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="pincode" optimistic-lock="true" type="int" unique="false">
+            <column name="pincode" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityType" optimistic-lock="true" type="string" unique="false">
+            <column length="256" name="publicity_type" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="numOfHoarding" optimistic-lock="true" type="int" unique="false">
+            <column name="num_of_hoarding" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityRegisterDate" optimistic-lock="true" type="date" unique="false">
+            <column length="10" name="publicity_register_date" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityRating" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="publicity_rating"/>
+        </property>
+        <property generated="never" lazy="false" name="publicityStatus" optimistic-lock="true" type="string" unique="false">
+            <column length="10" name="publicity_status" not-null="true"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="productses" optimistic-lock="true" sort="unsorted" table="products">
+            <key on-delete="noaction">
+                <column name="publicity_id" not-null="true"/>
+            </key>
+            <one-to-many class="pojo.Products" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

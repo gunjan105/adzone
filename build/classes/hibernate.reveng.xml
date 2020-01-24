@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd" >
+
+<hibernate-reverse-engineering>
+  <table-filter match-catalog="adzone" match-name="available_products"/>
+  <table-filter match-catalog="adzone" match-name="customer_info"/>
+  <table-filter match-catalog="adzone" match-name="products"/>
+  <table-filter match-catalog="adzone" match-name="publicity_details"/>
+  <table-filter match-catalog="adzone" match-name="publicity_feedbacks"/>
+  <table-filter match-catalog="adzone" match-name="reserved_products"/>
+</hibernate-reverse-engineering>
