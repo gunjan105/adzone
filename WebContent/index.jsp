@@ -35,13 +35,14 @@
   <body background="./public/image/bh.jpg" style="background-repeat: no-repeat;  ">
   <div class="overlay"> 
     <header>
-        
+
+        <%--        this is what I have changed--%>
     </header>
 
     <main id="main">
         <div class="my-new-header">
             <button id="openNav" class="w3-button w3-xlarge my-hamburger-btn" onclick="w3_open()">&#9776;</button>
-            <span>Adzone</span>
+            <span>Adzone1.0</span>
         </div>
 
         <div class="container-100">
@@ -75,7 +76,8 @@
                                 <div class="col-md-12">
                                     <div class="row">
                                         <div class="col-md-4">
-                                            <label for="password" style="color:whitesmoke">Password</label>
+                                            <label for="password" style="color:whitesmoke">Password
+                                            </label>
                                         </div>
                                         <div class="col-md-8">
                                             <input type="password" name="password" id="password" name="password">
